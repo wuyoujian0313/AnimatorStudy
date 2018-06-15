@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="动画学习"
+        android:textAlignment="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+        // 上面gravity属性的参数：center为居中，center_horizontal为水平居中，center_vertical为垂直居中
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:id="@+id/Button"
+            android:text="运动块"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal" >
+        // 上面gravity属性的参数：center为居中，center_horizontal为水平居中，center_vertical为垂直居中
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="45dp"
+            android:id="@+id/startAnimator"
+            android:text="调用动画"
+            android:textAllCaps="false" />
+    </LinearLayout>
+</LinearLayout>
