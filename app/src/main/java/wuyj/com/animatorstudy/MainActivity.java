@@ -8,6 +8,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.BounceInterpolator;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
                 //ofObjectAnimatorForRotation();
                 //ofObjectAnimatorForTranslationX();
                 //ofObjectAnimatorForScaleX();
-                ofObjectAnimatorForSet();
+                //ofObjectAnimatorForSet();
+               // ofViewPropertyAnimator();
+                ofAnimateObject();
             }
         });
     }
@@ -144,5 +149,41 @@ public class MainActivity extends AppCompatActivity {
 
         // 步骤4：启动动画
         animSet.start();
+    }
+
+    private void ofViewPropertyAnimator() {
+        final Button mButton = (Button) findViewById(R.id.Button);
+        // 创建动画作用对象：此处以Button为例
+
+        mButton.animate().alpha(0f);
+        // 单个动画设置:将按钮变成透明状态
+        mButton.animate().alpha(0f).setDuration(5000).setInterpolator(new BounceInterpolator());
+        // 单个动画效果设置 & 参数设置
+        mButton.animate().alpha(0f).x(500).y(500);
+    }
+
+    private void ofAnimateObject() {
+        //渐变动画    从显示（1.0）到隐藏（0.0）
+        AlphaAnimation alphaAnim = new AlphaAnimation(1.0f, 0.0f);
+        //执行三秒
+        alphaAnim.setDuration(1000);
+        alphaAnim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        final Button mButton = (Button) findViewById(R.id.Button);
+        mButton.startAnimation(alphaAnim);
     }
  }
